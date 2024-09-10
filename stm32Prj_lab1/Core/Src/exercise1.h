@@ -17,8 +17,14 @@
 #define GREEN 3
 #define YELLOW 4
 
+#define RED1_GREEN 5
+#define RED1_YELLOW 6
+#define RED2_GREEN 7
+#define RED2_YELLOW 8
+
 void exercise_init();
 void exercise1_run();
 void exercise2_run();
+void exercise3_run();
 
 #endif /* SRC_EXERCISE1_H_ */
