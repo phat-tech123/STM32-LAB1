@@ -8,6 +8,10 @@
 
 #include "exercise1.h"
 
+
+void exercise_init(){
+
+}
 int led_status = LED_OFF;
 
 void led_on(){
@@ -22,13 +26,13 @@ void led_off(){
 
 void exercise1_run(){
 	switch(led_status){
-	case LED_OFF:
+	case LED_ON:
 		led_on();
 		if(1){
 			led_status = LED_OFF;
 		}
 		break;
-	case LED_ON:
+	case LED_OFF:
 		led_off();
 		if(1){
 			led_status = LED_ON;
