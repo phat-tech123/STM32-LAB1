@@ -7,6 +7,7 @@
 
 
 #include "exercise1.h"
+#include "exercise4.h"
 
 
 void exercise_init(){
@@ -119,6 +120,8 @@ void exercise3_run(){
 			turn_green_2();
 		}
 		++count;
+		display7SEG(5-count); //1-4  2-3  3-2
+		display7SEGMENT(3-count);
 		if(count == 3){
 			count = 0;
 			light_state = RED1_YELLOW;
@@ -129,6 +132,8 @@ void exercise3_run(){
 			turn_yellow_2();
 		}
 		++count;
+		display7SEG(5-3-count); //1-1  2-0
+		display7SEGMENT(2-count);
 		if(count == 2){
 			count = 0;
 			light_state = RED2_GREEN;
@@ -140,6 +145,8 @@ void exercise3_run(){
 			turn_green();
 		}
 		++count;
+		display7SEGMENT(5-count);
+		display7SEG(3-count);
 		if(count == 3){
 			count = 0;
 			light_state = RED2_YELLOW;
@@ -150,6 +157,8 @@ void exercise3_run(){
 			turn_yellow();
 		}
 		++count;
+		display7SEG(5-3-count);
+		display7SEGMENT(2-count);
 		if(count == 2){
 			count = 0;
 			light_state = RED1_GREEN;

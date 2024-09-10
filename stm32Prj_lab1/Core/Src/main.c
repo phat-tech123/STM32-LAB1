@@ -92,15 +92,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int counter = 0;
-
   while (1)
   {
     /* USER CODE END WHILE */
-	  if( counter >= 10) counter = 0;
-	  		  	  display7SEG ( counter ++) ;
-	  		  HAL_Delay (1000) ;
-
+	  exercise3_run();
+	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -159,8 +155,10 @@ static void MX_GPIO_Init(void)
                           |LED_YELLOW_Pin|LED_GREEN_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SEG_1_Pin|SEG_2_Pin|SEG_3_Pin|SEG_4_Pin
-                          |SEG_5_Pin|SEG_6_Pin|SEG_7_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, SEG_1_Pin|SEG_2_Pin|SEG_3_Pin|SEGMENT_4_Pin
+                          |SEGMENT_5_Pin|SEGMENT_6_Pin|SEGMENT_7_Pin|SEG_4_Pin
+                          |SEG_5_Pin|SEG_6_Pin|SEG_7_Pin|SEGMENT_1_Pin
+                          |SEGMENT_2_Pin|SEGMENT_3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_RED_2_Pin LED_YELLOW_2_Pin LED_GREEN_2_Pin LED_RED_Pin
                            LED_YELLOW_Pin LED_GREEN_Pin */
@@ -171,10 +169,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SEG_1_Pin SEG_2_Pin SEG_3_Pin SEG_4_Pin
-                           SEG_5_Pin SEG_6_Pin SEG_7_Pin */
-  GPIO_InitStruct.Pin = SEG_1_Pin|SEG_2_Pin|SEG_3_Pin|SEG_4_Pin
-                          |SEG_5_Pin|SEG_6_Pin|SEG_7_Pin;
+  /*Configure GPIO pins : SEG_1_Pin SEG_2_Pin SEG_3_Pin SEGMENT_4_Pin
+                           SEGMENT_5_Pin SEGMENT_6_Pin SEGMENT_7_Pin SEG_4_Pin
+                           SEG_5_Pin SEG_6_Pin SEG_7_Pin SEGMENT_1_Pin
+                           SEGMENT_2_Pin SEGMENT_3_Pin */
+  GPIO_InitStruct.Pin = SEG_1_Pin|SEG_2_Pin|SEG_3_Pin|SEGMENT_4_Pin
+                          |SEGMENT_5_Pin|SEGMENT_6_Pin|SEGMENT_7_Pin|SEG_4_Pin
+                          |SEG_5_Pin|SEG_6_Pin|SEG_7_Pin|SEGMENT_1_Pin
+                          |SEGMENT_2_Pin|SEGMENT_3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
