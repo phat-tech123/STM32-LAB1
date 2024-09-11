@@ -9,7 +9,6 @@
 #define SRC_EXERCISE6_H_
 
 #include "main.h"
-void exercise6_run();
 
 void displayNumber(int num);
 

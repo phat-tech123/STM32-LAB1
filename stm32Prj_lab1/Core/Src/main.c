@@ -98,7 +98,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  if(count > 12) count = 0;
-	  displayNumber(count++);
+	  displayNumber(++count);
 	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
