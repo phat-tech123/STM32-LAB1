@@ -10,8 +10,9 @@
 
 #include "main.h"
 
-void setNumberOnClock(int num);
 
+void setNumberOnClock(int num);
+void  clearNumberOnClock(int num);
 void displayNumber(int num);
 
 
