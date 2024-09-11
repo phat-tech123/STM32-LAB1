@@ -9,7 +9,8 @@
 #define SRC_EXERCISE6_H_
 
 #include "main.h"
-void exercise7_run();
+
+void setNumberOnClock(int num);
 
 void displayNumber(int num);
 
