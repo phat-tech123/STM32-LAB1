@@ -93,12 +93,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int count = 0;
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(count > 12) count = 0;
-	  displayNumber(count++);
+
+	  exercise7_run();
 	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }
