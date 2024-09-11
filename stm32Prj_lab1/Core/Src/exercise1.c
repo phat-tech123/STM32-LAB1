@@ -13,7 +13,7 @@
 void exercise_init(){
 
 }
-
+/*
 //exercise 1
 int led_status = LED_OFF;
 void led_on(){
@@ -218,3 +218,4 @@ void exercise5_run(){
 		break;
 	}
 }
+*/
