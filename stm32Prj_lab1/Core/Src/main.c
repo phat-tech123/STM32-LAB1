@@ -98,7 +98,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-
+	  exercise10_run(10,34,2);
 	  HAL_Delay(1000);
     /* USER CODE BEGIN 3 */
   }

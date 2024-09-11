@@ -2,3 +2,4 @@ exercise6.c:10:6:displayNumber	16	static
 exercise6.c:185:6:clearAllClock	8	static
 exercise6.c:199:6:setNumberOnClock	16	static
 exercise6.c:241:6:clearNumberOnClock	16	static
+exercise6.c:284:6:exercise10_run	24	static

@@ -280,3 +280,13 @@ void clearNumberOnClock(int num){
 			break;
 		}
 }
+
+void exercise10_run(int hr, int min, int sec){
+	clearAllClock();
+	//hour
+	setNumberOnClock(hr%12);
+	//minute
+	setNumberOnClock(min/5);
+	//second
+	setNumberOnClock(sec/5);
+}
