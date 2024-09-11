@@ -120,6 +120,56 @@ void exercise3_run(){
 			turn_green_2();
 		}
 		++count;
+		if(count == 3){
+			count = 0;
+			light_state = RED1_YELLOW;
+		}
+		break;
+	case RED1_YELLOW:
+		if(count == 0){
+			turn_yellow_2();
+		}
+		++count;
+		if(count == 2){
+			count = 0;
+			light_state = RED2_GREEN;
+		}
+		break;
+	case RED2_GREEN:
+		if(count == 0){
+			turn_red_2();
+			turn_green();
+		}
+		++count;
+		if(count == 3){
+			count = 0;
+			light_state = RED2_YELLOW;
+		}
+		break;
+	case RED2_YELLOW:
+		if(count == 0){
+			turn_yellow();
+		}
+		++count;
+		if(count == 2){
+			count = 0;
+			light_state = RED1_GREEN;
+		}
+		break;
+	default:
+		break;
+	}
+}
+
+void exercise5_run(){
+	//phase 1
+	switch(light_state){
+	case RED1_GREEN:
+		if(count == 0){
+			turn_red();
+			turn_green_2();
+		}
+		++count;
 		display7SEG(5-count); //1-4  2-3  3-2
 		display7SEGMENT(3-count);
 		if(count == 3){

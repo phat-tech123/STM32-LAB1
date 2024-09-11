@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00020010  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000358a  00000000  00000000  00020039  2**0
+ 12 .debug_info   0000359c  00000000  00000000  00020039  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000010b4  00000000  00000000  000235c3  2**0
+ 13 .debug_abbrev 000010b4  00000000  00000000  000235d5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000470  00000000  00000000  00024678  2**3
+ 14 .debug_aranges 00000478  00000000  00000000  00024690  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000003c8  00000000  00000000  00024ae8  2**3
+ 15 .debug_ranges 000003d0  00000000  00000000  00024b08  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000159fe  00000000  00000000  00024eb0  2**0
+ 16 .debug_macro  000159fe  00000000  00000000  00024ed8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000549c  00000000  00000000  0003a8ae  2**0
+ 17 .debug_line   0000552f  00000000  00000000  0003a8d6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00079d53  00000000  00000000  0003fd4a  2**0
+ 18 .debug_str    00079d61  00000000  00000000  0003fe05  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000b9a9d  2**0
+ 19 .comment      00000053  00000000  00000000  000b9b66  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000ef0  00000000  00000000  000b9af0  2**2
+ 20 .debug_frame  00000f0c  00000000  00000000  000b9bbc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -236,19 +236,23 @@ void turn_yellow_2(){
  800024e:	bf00      	nop
  8000250:	40010800 	.word	0x40010800
 
-08000254 <exercise3_run>:
-int light_state = RED1_GREEN;
-void exercise3_run(){
+08000254 <exercise5_run>:
+	default:
+		break;
+	}
+}
+
+void exercise5_run(){
  8000254:	b580      	push	{r7, lr}
  8000256:	af00      	add	r7, sp, #0
 	//phase 1
 	switch(light_state){
- 8000258:	4b58      	ldr	r3, [pc, #352]	; (80003bc <exercise3_run+0x168>)
+ 8000258:	4b58      	ldr	r3, [pc, #352]	; (80003bc <exercise5_run+0x168>)
  800025a:	681b      	ldr	r3, [r3, #0]
  800025c:	3b05      	subs	r3, #5
  800025e:	2b03      	cmp	r3, #3
- 8000260:	f200 80a0 	bhi.w	80003a4 <exercise3_run+0x150>
- 8000264:	a201      	add	r2, pc, #4	; (adr r2, 800026c <exercise3_run+0x18>)
+ 8000260:	f200 80a0 	bhi.w	80003a4 <exercise5_run+0x150>
+ 8000264:	a201      	add	r2, pc, #4	; (adr r2, 800026c <exercise5_run+0x18>)
  8000266:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
  800026a:	bf00      	nop
  800026c:	0800027d 	.word	0x0800027d
@@ -257,193 +261,193 @@ void exercise3_run(){
  8000278:	0800035d 	.word	0x0800035d
 	case RED1_GREEN:
 		if(count == 0){
- 800027c:	4b50      	ldr	r3, [pc, #320]	; (80003c0 <exercise3_run+0x16c>)
+ 800027c:	4b50      	ldr	r3, [pc, #320]	; (80003c0 <exercise5_run+0x16c>)
  800027e:	681b      	ldr	r3, [r3, #0]
  8000280:	2b00      	cmp	r3, #0
- 8000282:	d103      	bne.n	800028c <exercise3_run+0x38>
+ 8000282:	d103      	bne.n	800028c <exercise5_run+0x38>
 			turn_red();
  8000284:	f7ff ff62 	bl	800014c <turn_red>
 			turn_green_2();
  8000288:	f7ff ffb8 	bl	80001fc <turn_green_2>
 		}
 		++count;
- 800028c:	4b4c      	ldr	r3, [pc, #304]	; (80003c0 <exercise3_run+0x16c>)
+ 800028c:	4b4c      	ldr	r3, [pc, #304]	; (80003c0 <exercise5_run+0x16c>)
  800028e:	681b      	ldr	r3, [r3, #0]
  8000290:	3301      	adds	r3, #1
- 8000292:	4a4b      	ldr	r2, [pc, #300]	; (80003c0 <exercise3_run+0x16c>)
+ 8000292:	4a4b      	ldr	r2, [pc, #300]	; (80003c0 <exercise5_run+0x16c>)
  8000294:	6013      	str	r3, [r2, #0]
 		display7SEG(5-count); //1-4  2-3  3-2
- 8000296:	4b4a      	ldr	r3, [pc, #296]	; (80003c0 <exercise3_run+0x16c>)
+ 8000296:	4b4a      	ldr	r3, [pc, #296]	; (80003c0 <exercise5_run+0x16c>)
  8000298:	681b      	ldr	r3, [r3, #0]
  800029a:	f1c3 0305 	rsb	r3, r3, #5
  800029e:	4618      	mov	r0, r3
  80002a0:	f000 f890 	bl	80003c4 <display7SEG>
 		display7SEGMENT(3-count);
- 80002a4:	4b46      	ldr	r3, [pc, #280]	; (80003c0 <exercise3_run+0x16c>)
+ 80002a4:	4b46      	ldr	r3, [pc, #280]	; (80003c0 <exercise5_run+0x16c>)
  80002a6:	681b      	ldr	r3, [r3, #0]
  80002a8:	f1c3 0303 	rsb	r3, r3, #3
  80002ac:	4618      	mov	r0, r3
  80002ae:	f000 fa17 	bl	80006e0 <display7SEGMENT>
 		if(count == 3){
- 80002b2:	4b43      	ldr	r3, [pc, #268]	; (80003c0 <exercise3_run+0x16c>)
+ 80002b2:	4b43      	ldr	r3, [pc, #268]	; (80003c0 <exercise5_run+0x16c>)
  80002b4:	681b      	ldr	r3, [r3, #0]
  80002b6:	2b03      	cmp	r3, #3
- 80002b8:	d176      	bne.n	80003a8 <exercise3_run+0x154>
+ 80002b8:	d176      	bne.n	80003a8 <exercise5_run+0x154>
 			count = 0;
- 80002ba:	4b41      	ldr	r3, [pc, #260]	; (80003c0 <exercise3_run+0x16c>)
+ 80002ba:	4b41      	ldr	r3, [pc, #260]	; (80003c0 <exercise5_run+0x16c>)
  80002bc:	2200      	movs	r2, #0
  80002be:	601a      	str	r2, [r3, #0]
 			light_state = RED1_YELLOW;
- 80002c0:	4b3e      	ldr	r3, [pc, #248]	; (80003bc <exercise3_run+0x168>)
+ 80002c0:	4b3e      	ldr	r3, [pc, #248]	; (80003bc <exercise5_run+0x168>)
  80002c2:	2206      	movs	r2, #6
  80002c4:	601a      	str	r2, [r3, #0]
 		}
 		break;
- 80002c6:	e06f      	b.n	80003a8 <exercise3_run+0x154>
+ 80002c6:	e06f      	b.n	80003a8 <exercise5_run+0x154>
 	case RED1_YELLOW:
 		if(count == 0){
- 80002c8:	4b3d      	ldr	r3, [pc, #244]	; (80003c0 <exercise3_run+0x16c>)
+ 80002c8:	4b3d      	ldr	r3, [pc, #244]	; (80003c0 <exercise5_run+0x16c>)
  80002ca:	681b      	ldr	r3, [r3, #0]
  80002cc:	2b00      	cmp	r3, #0
- 80002ce:	d101      	bne.n	80002d4 <exercise3_run+0x80>
+ 80002ce:	d101      	bne.n	80002d4 <exercise5_run+0x80>
 			turn_yellow_2();
  80002d0:	f7ff ffaa 	bl	8000228 <turn_yellow_2>
 		}
 		++count;
- 80002d4:	4b3a      	ldr	r3, [pc, #232]	; (80003c0 <exercise3_run+0x16c>)
+ 80002d4:	4b3a      	ldr	r3, [pc, #232]	; (80003c0 <exercise5_run+0x16c>)
  80002d6:	681b      	ldr	r3, [r3, #0]
  80002d8:	3301      	adds	r3, #1
- 80002da:	4a39      	ldr	r2, [pc, #228]	; (80003c0 <exercise3_run+0x16c>)
+ 80002da:	4a39      	ldr	r2, [pc, #228]	; (80003c0 <exercise5_run+0x16c>)
  80002dc:	6013      	str	r3, [r2, #0]
 		display7SEG(5-3-count); //1-1  2-0
- 80002de:	4b38      	ldr	r3, [pc, #224]	; (80003c0 <exercise3_run+0x16c>)
+ 80002de:	4b38      	ldr	r3, [pc, #224]	; (80003c0 <exercise5_run+0x16c>)
  80002e0:	681b      	ldr	r3, [r3, #0]
  80002e2:	f1c3 0302 	rsb	r3, r3, #2
  80002e6:	4618      	mov	r0, r3
  80002e8:	f000 f86c 	bl	80003c4 <display7SEG>
 		display7SEGMENT(2-count);
- 80002ec:	4b34      	ldr	r3, [pc, #208]	; (80003c0 <exercise3_run+0x16c>)
+ 80002ec:	4b34      	ldr	r3, [pc, #208]	; (80003c0 <exercise5_run+0x16c>)
  80002ee:	681b      	ldr	r3, [r3, #0]
  80002f0:	f1c3 0302 	rsb	r3, r3, #2
  80002f4:	4618      	mov	r0, r3
  80002f6:	f000 f9f3 	bl	80006e0 <display7SEGMENT>
 		if(count == 2){
- 80002fa:	4b31      	ldr	r3, [pc, #196]	; (80003c0 <exercise3_run+0x16c>)
+ 80002fa:	4b31      	ldr	r3, [pc, #196]	; (80003c0 <exercise5_run+0x16c>)
  80002fc:	681b      	ldr	r3, [r3, #0]
  80002fe:	2b02      	cmp	r3, #2
- 8000300:	d154      	bne.n	80003ac <exercise3_run+0x158>
+ 8000300:	d154      	bne.n	80003ac <exercise5_run+0x158>
 			count = 0;
- 8000302:	4b2f      	ldr	r3, [pc, #188]	; (80003c0 <exercise3_run+0x16c>)
+ 8000302:	4b2f      	ldr	r3, [pc, #188]	; (80003c0 <exercise5_run+0x16c>)
  8000304:	2200      	movs	r2, #0
  8000306:	601a      	str	r2, [r3, #0]
 			light_state = RED2_GREEN;
- 8000308:	4b2c      	ldr	r3, [pc, #176]	; (80003bc <exercise3_run+0x168>)
+ 8000308:	4b2c      	ldr	r3, [pc, #176]	; (80003bc <exercise5_run+0x168>)
  800030a:	2207      	movs	r2, #7
  800030c:	601a      	str	r2, [r3, #0]
 		}
 		break;
- 800030e:	e04d      	b.n	80003ac <exercise3_run+0x158>
+ 800030e:	e04d      	b.n	80003ac <exercise5_run+0x158>
 	case RED2_GREEN:
 		if(count == 0){
- 8000310:	4b2b      	ldr	r3, [pc, #172]	; (80003c0 <exercise3_run+0x16c>)
+ 8000310:	4b2b      	ldr	r3, [pc, #172]	; (80003c0 <exercise5_run+0x16c>)
  8000312:	681b      	ldr	r3, [r3, #0]
  8000314:	2b00      	cmp	r3, #0
- 8000316:	d103      	bne.n	8000320 <exercise3_run+0xcc>
+ 8000316:	d103      	bne.n	8000320 <exercise5_run+0xcc>
 			turn_red_2();
  8000318:	f7ff ff5a 	bl	80001d0 <turn_red_2>
 			turn_green();
  800031c:	f7ff ff2c 	bl	8000178 <turn_green>
 		}
 		++count;
- 8000320:	4b27      	ldr	r3, [pc, #156]	; (80003c0 <exercise3_run+0x16c>)
+ 8000320:	4b27      	ldr	r3, [pc, #156]	; (80003c0 <exercise5_run+0x16c>)
  8000322:	681b      	ldr	r3, [r3, #0]
  8000324:	3301      	adds	r3, #1
- 8000326:	4a26      	ldr	r2, [pc, #152]	; (80003c0 <exercise3_run+0x16c>)
+ 8000326:	4a26      	ldr	r2, [pc, #152]	; (80003c0 <exercise5_run+0x16c>)
  8000328:	6013      	str	r3, [r2, #0]
 		display7SEGMENT(5-count);
- 800032a:	4b25      	ldr	r3, [pc, #148]	; (80003c0 <exercise3_run+0x16c>)
+ 800032a:	4b25      	ldr	r3, [pc, #148]	; (80003c0 <exercise5_run+0x16c>)
  800032c:	681b      	ldr	r3, [r3, #0]
  800032e:	f1c3 0305 	rsb	r3, r3, #5
  8000332:	4618      	mov	r0, r3
  8000334:	f000 f9d4 	bl	80006e0 <display7SEGMENT>
 		display7SEG(3-count);
- 8000338:	4b21      	ldr	r3, [pc, #132]	; (80003c0 <exercise3_run+0x16c>)
+ 8000338:	4b21      	ldr	r3, [pc, #132]	; (80003c0 <exercise5_run+0x16c>)
  800033a:	681b      	ldr	r3, [r3, #0]
  800033c:	f1c3 0303 	rsb	r3, r3, #3
  8000340:	4618      	mov	r0, r3
  8000342:	f000 f83f 	bl	80003c4 <display7SEG>
 		if(count == 3){
- 8000346:	4b1e      	ldr	r3, [pc, #120]	; (80003c0 <exercise3_run+0x16c>)
+ 8000346:	4b1e      	ldr	r3, [pc, #120]	; (80003c0 <exercise5_run+0x16c>)
  8000348:	681b      	ldr	r3, [r3, #0]
  800034a:	2b03      	cmp	r3, #3
- 800034c:	d130      	bne.n	80003b0 <exercise3_run+0x15c>
+ 800034c:	d130      	bne.n	80003b0 <exercise5_run+0x15c>
 			count = 0;
- 800034e:	4b1c      	ldr	r3, [pc, #112]	; (80003c0 <exercise3_run+0x16c>)
+ 800034e:	4b1c      	ldr	r3, [pc, #112]	; (80003c0 <exercise5_run+0x16c>)
  8000350:	2200      	movs	r2, #0
  8000352:	601a      	str	r2, [r3, #0]
 			light_state = RED2_YELLOW;
- 8000354:	4b19      	ldr	r3, [pc, #100]	; (80003bc <exercise3_run+0x168>)
+ 8000354:	4b19      	ldr	r3, [pc, #100]	; (80003bc <exercise5_run+0x168>)
  8000356:	2208      	movs	r2, #8
  8000358:	601a      	str	r2, [r3, #0]
 		}
 		break;
- 800035a:	e029      	b.n	80003b0 <exercise3_run+0x15c>
+ 800035a:	e029      	b.n	80003b0 <exercise5_run+0x15c>
 	case RED2_YELLOW:
 		if(count == 0){
- 800035c:	4b18      	ldr	r3, [pc, #96]	; (80003c0 <exercise3_run+0x16c>)
+ 800035c:	4b18      	ldr	r3, [pc, #96]	; (80003c0 <exercise5_run+0x16c>)
  800035e:	681b      	ldr	r3, [r3, #0]
  8000360:	2b00      	cmp	r3, #0
- 8000362:	d101      	bne.n	8000368 <exercise3_run+0x114>
+ 8000362:	d101      	bne.n	8000368 <exercise5_run+0x114>
 			turn_yellow();
  8000364:	f7ff ff1e 	bl	80001a4 <turn_yellow>
 		}
 		++count;
- 8000368:	4b15      	ldr	r3, [pc, #84]	; (80003c0 <exercise3_run+0x16c>)
+ 8000368:	4b15      	ldr	r3, [pc, #84]	; (80003c0 <exercise5_run+0x16c>)
  800036a:	681b      	ldr	r3, [r3, #0]
  800036c:	3301      	adds	r3, #1
- 800036e:	4a14      	ldr	r2, [pc, #80]	; (80003c0 <exercise3_run+0x16c>)
+ 800036e:	4a14      	ldr	r2, [pc, #80]	; (80003c0 <exercise5_run+0x16c>)
  8000370:	6013      	str	r3, [r2, #0]
 		display7SEG(5-3-count);
- 8000372:	4b13      	ldr	r3, [pc, #76]	; (80003c0 <exercise3_run+0x16c>)
+ 8000372:	4b13      	ldr	r3, [pc, #76]	; (80003c0 <exercise5_run+0x16c>)
  8000374:	681b      	ldr	r3, [r3, #0]
  8000376:	f1c3 0302 	rsb	r3, r3, #2
  800037a:	4618      	mov	r0, r3
  800037c:	f000 f822 	bl	80003c4 <display7SEG>
 		display7SEGMENT(2-count);
- 8000380:	4b0f      	ldr	r3, [pc, #60]	; (80003c0 <exercise3_run+0x16c>)
+ 8000380:	4b0f      	ldr	r3, [pc, #60]	; (80003c0 <exercise5_run+0x16c>)
  8000382:	681b      	ldr	r3, [r3, #0]
  8000384:	f1c3 0302 	rsb	r3, r3, #2
  8000388:	4618      	mov	r0, r3
  800038a:	f000 f9a9 	bl	80006e0 <display7SEGMENT>
 		if(count == 2){
- 800038e:	4b0c      	ldr	r3, [pc, #48]	; (80003c0 <exercise3_run+0x16c>)
+ 800038e:	4b0c      	ldr	r3, [pc, #48]	; (80003c0 <exercise5_run+0x16c>)
  8000390:	681b      	ldr	r3, [r3, #0]
  8000392:	2b02      	cmp	r3, #2
- 8000394:	d10e      	bne.n	80003b4 <exercise3_run+0x160>
+ 8000394:	d10e      	bne.n	80003b4 <exercise5_run+0x160>
 			count = 0;
- 8000396:	4b0a      	ldr	r3, [pc, #40]	; (80003c0 <exercise3_run+0x16c>)
+ 8000396:	4b0a      	ldr	r3, [pc, #40]	; (80003c0 <exercise5_run+0x16c>)
  8000398:	2200      	movs	r2, #0
  800039a:	601a      	str	r2, [r3, #0]
 			light_state = RED1_GREEN;
- 800039c:	4b07      	ldr	r3, [pc, #28]	; (80003bc <exercise3_run+0x168>)
+ 800039c:	4b07      	ldr	r3, [pc, #28]	; (80003bc <exercise5_run+0x168>)
  800039e:	2205      	movs	r2, #5
  80003a0:	601a      	str	r2, [r3, #0]
 		}
 		break;
- 80003a2:	e007      	b.n	80003b4 <exercise3_run+0x160>
+ 80003a2:	e007      	b.n	80003b4 <exercise5_run+0x160>
 	default:
 		break;
  80003a4:	bf00      	nop
- 80003a6:	e006      	b.n	80003b6 <exercise3_run+0x162>
+ 80003a6:	e006      	b.n	80003b6 <exercise5_run+0x162>
 		break;
  80003a8:	bf00      	nop
- 80003aa:	e004      	b.n	80003b6 <exercise3_run+0x162>
+ 80003aa:	e004      	b.n	80003b6 <exercise5_run+0x162>
 		break;
  80003ac:	bf00      	nop
- 80003ae:	e002      	b.n	80003b6 <exercise3_run+0x162>
+ 80003ae:	e002      	b.n	80003b6 <exercise5_run+0x162>
 		break;
  80003b0:	bf00      	nop
- 80003b2:	e000      	b.n	80003b6 <exercise3_run+0x162>
+ 80003b2:	e000      	b.n	80003b6 <exercise5_run+0x162>
 		break;
  80003b4:	bf00      	nop
 	}
@@ -1319,12 +1323,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  exercise3_run();
- 8000a84:	f7ff fbe6 	bl	8000254 <exercise3_run>
+	  exercise5_run();
+ 8000a84:	f7ff fbe6 	bl	8000254 <exercise5_run>
 	  HAL_Delay(1000);
  8000a88:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8000a8c:	f000 f97e 	bl	8000d8c <HAL_Delay>
-	  exercise3_run();
+	  exercise5_run();
  8000a90:	e7f8      	b.n	8000a84 <main+0x10>
 
 08000a92 <SystemClock_Config>:

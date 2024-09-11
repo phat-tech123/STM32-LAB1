@@ -198,4 +198,3 @@ void display7SEGMENT(int num){
 	 	 break;
 	 }
  }
-

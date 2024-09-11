@@ -26,5 +26,6 @@ void exercise_init();
 void exercise1_run();
 void exercise2_run();
 void exercise3_run();
+void exercise5_run();
 
 #endif /* SRC_EXERCISE1_H_ */
