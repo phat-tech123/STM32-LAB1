@@ -281,7 +281,7 @@ void clearNumberOnClock(int num){
 		}
 }
 
-void exercise10_run(int hr, int min, int sec){
+void displayClock(int hr, int min, int sec){
 	clearAllClock();
 	//hour
 	setNumberOnClock(hr%12);
@@ -289,4 +289,21 @@ void exercise10_run(int hr, int min, int sec){
 	setNumberOnClock(min/5);
 	//second
 	setNumberOnClock(sec/5);
+}
+
+int hr = 0, min = 0, sec = 0;
+void exercise10_run(){
+	if(sec >= 60){
+		++min;
+		sec = 0;
+	}
+	if(min >= 60){
+		hr++;
+		min = 0;
+	}
+	if(hr >= 24){
+		hr = 0;
+	}
+	displayClock(hr,min,sec);
+	++sec;
 }
